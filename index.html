@@ -55,6 +55,12 @@
                     <a href="#page-top"></a>
                 </li>
                 <li class="page-scroll">
+                    <a href="#usage">Usage</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#options">Options</a>
+                </li>
+                <li class="page-scroll">
                     <a href="#demo">Demo</a>
                 </li>
                 <li class="page-scroll">
@@ -80,7 +86,112 @@
         </div>
     </div>
 </header>
-<!-- Portfolio Grid Section -->
+<section id="usage">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Usage</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-2 col-xs-8 text-center">
+                ngTabs is the easiest way to put a simple and responsive <em>tabs widget</em> in your website.
+                <ol style="text-align: left">
+                    <li>Import JS and CSS in your page</li>
+                    <li>Inject ngTabs in your app:
+                        <pre><code>var app = angular.module("myApp", ["ngTabs"]);</code></pre>
+                    </li>
+                    <li>Put this simple snippet where you want the widget to appear:
+                        <pre><code>
+                            &lt;ng-tabs&gt;
+                            &lt;ng-tabs-pane ng-tabs-title="TAB 1 TITLE"&gt;
+                            &lt;/ng-tabs-pane&gt;
+                            &lt;/ng-tabs&gt;
+                        </code></pre>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="options">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Options</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr/>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Default value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><strong>visible-items-desktop</strong></td>
+                        <td>Number of elements to display on desktop (width > 992px)
+                        </td>
+                        <td>Number</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>visible-items-tablet</strong></td>
+                        <td>Number of elements to display on tablet (768px <= width >= 992px)</td>
+                        <td>Number</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td><strong>visible-items-tablet</strong></td>
+                        <td>Number of elements to display on mobile (width < 768px)</td>
+                        <td>Number</td>
+                        <td>1</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>show-indicators</strong></td>
+                        <td>If "true" one dot per tab will be showed over the tabs.</td>
+                        <td>String</td>
+                        <td>false</td>
+                    </tr>
+                    <tr>
+                        <td><strong>force-visible</strong></td>
+                        <td>By default, ng-tabs will control if visible items is higher than the number of tabs.
+                            if force-visible is "true", the control will be skipped and you could achieve to display
+                            tabs as they are in the demo below.
+                        </td>
+                        <td>Boolean</td>
+                        <td>true</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ng-tabs-title</strong></td>
+                        <td>This param is to put on the &lt;ng-tabs-pane&gt; element. The title will be put in the tab
+                            toggle
+                        </td>
+                        <td>string</td>
+                        <td>en</td>
+                    </tr>
+                    <tr>
+                        <td><strong>enablePermalink</strong></td>
+                        <td>If true, a link to the post will be set in the "posted string"</td>
+                        <td>Boolean</td>
+                        <td>false</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 <section id="demo">
     <div class="container">
         <div class="row">
@@ -89,37 +200,18 @@
                 <hr class="star-primary">
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 text-center">
-                ngTabs is the easiest way to put a simple and responsive <em>tabs widget</em> in your website.
-                <h3>Usage</h3>
-                <ol style="text-align: left">
-                    <li>Import JS and CSS in your page</li>
-                    <li>Inject ngTabs in your app:
-                        <pre><code>var app = angular.module("myApp", ["ngTabs"]);</code></pre>
-                    </li>
-                    <li>Put this simple snippet where you want the widget to appear:
-                        <pre><code>&lt;ng-tabs&gt;&lt;/ng-tabs&gt;</code></pre>
-                    </li>
-                </ol>
-            </div>
-
-        </div>
-        <div class="row ubi-margin-bottom-20" ng-controller="tabsDemo">
-            <div class="col-xs-12">
-                {{angularLoaded}}
-            </div>
+        <div class="row ubi-margin-bottom-20">
             <div class="col-xs-12">
                 <ng-tabs
                         visible-items-desktop="3"
                         visible-items-tablet="3"
                         force-visible="true"
                         show-indicators="true">
-                    <ng-tabs-pane ng-tabs-title="TAB TONY 1">
-                        <p>TAB 1</p>
+                    <ng-tabs-pane ng-tabs-title="TAB 1 TITLE">
+                        <p>TAB 1 CONTENT</p>
                     </ng-tabs-pane>
-                    <ng-tabs-pane ng-tabs-title="TAB TONY 2">
-                        <p>TAB 2</p>
+                    <ng-tabs-pane ng-tabs-title="TAB 2 TITLE">
+                        <p>TAB 2 CONTENT</p>
                     </ng-tabs-pane>
                 </ng-tabs>
             </div>
