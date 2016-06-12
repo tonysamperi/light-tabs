@@ -1,0 +1,8 @@
+<ul class="animate-left">
+	<li ng-class="{'selected': tab.selected}"
+		ng-repeat="tab in tabs track by $index"
+		class="noSelect"
+		ng-bind-html="trust(tab.content)"
+		ng-click="selectTab(tab)">
+	</li>
+</ul>
