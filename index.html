@@ -96,7 +96,7 @@
         <div class="row">
             <div class="col-xs-offset-2 col-xs-8 text-center">
                 ngTabs is the easiest way to put a simple and responsive <em>tabs widget</em> in your website.
-                <br />
+                <br/>
                 When there are more items then visible, arrows will be shown and let you navigate!
                 <ol style="text-align: left">
                     <li>Import JS and CSS in your page</li>
@@ -168,7 +168,7 @@
                         <td><strong>force-visible</strong></td>
                         <td>By default, ng-tabs will control if visible items is higher than the number of tabs.
                             if force-visible is "true", the control will be skipped and you could achieve to display
-                            tabs as they are in the demo below.
+                            tabs as they are in the second demo below.
                         </td>
                         <td>Boolean</td>
                         <td>true</td>
@@ -187,7 +187,7 @@
         </div>
     </div>
 </section>
-<section id="demo">
+<section id="demo" style="padding-top: 50px;">
     <div class="container" ng-app="myApp">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -197,9 +197,39 @@
         </div>
         <div class="row ubi-margin-bottom-20">
             <div class="col-xs-12">
+                <div class="col-xs-12">
+                    <h3>DEFAULT</h3>
+                </div>
                 <ng-tabs
                         visible-items-desktop="3"
                         visible-items-tablet="3"
+                        show-indicators="true">
+                    <ng-tabs-pane ng-tabs-title="TAB 1 TITLE">
+                        <p>TAB 1 CONTENT</p>
+                    </ng-tabs-pane>
+                    <ng-tabs-pane ng-tabs-title="TAB 2 TITLE">
+                        <p>TAB 2 CONTENT</p>
+                    </ng-tabs-pane>
+                    <ng-tabs-pane ng-tabs-title="TAB 3 TITLE">
+                        <p>TAB 3 CONTENT</p>
+                    </ng-tabs-pane>
+                    <ng-tabs-pane ng-tabs-title="TAB 4 TITLE">
+                        <p>TAB 4 CONTENT</p>
+                    </ng-tabs-pane>
+                    <ng-tabs-pane ng-tabs-title="TAB 5 TITLE">
+                        <p>TAB 5 CONTENT</p>
+                    </ng-tabs-pane>
+                </ng-tabs>
+            </div>
+        </div>
+        <div class="row ubi-margin-bottom-20">
+            <div class="col-xs-12">
+                <h3>FORCED</h3>
+            </div>
+            <div class="col-xs-12">
+                <ng-tabs
+                        visible-items-desktop="3"
+                        visible-items-tablet="2"
                         force-visible="true"
                         show-indicators="true">
                     <ng-tabs-pane ng-tabs-title="TAB 1 TITLE">
