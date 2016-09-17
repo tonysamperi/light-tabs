@@ -1,10 +1,10 @@
 <ul class="animate-left">
     <li ng-repeat="pane in panes track by $index"
-        ng-click="select(pane)"
+        ng-click="select($index)"
         ng-class="{selected:pane.selected}" class="noSelect">
         <div ng-bind="pane.title"></div>
     </li>
 </ul>
-<a ng-show="showLeftArrow" class="arrowLeft ng-tabs-arrows" ng-click="scrollLeft()"></a>
-<a ng-show="showRightArrow" class="arrowRight ng-tabs-arrows" ng-click="scrollRight()"></a>
+<a ng-show="showLeftArrow" class="arrowLeft ng-tabs-arrows" ng-click="scroll(-1)"></a>
+<a ng-show="showRightArrow" class="arrowRight ng-tabs-arrows" ng-click="scroll(1)"></a>
 <div ng-transclude></div>
