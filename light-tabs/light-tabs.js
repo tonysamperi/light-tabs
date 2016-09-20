@@ -257,6 +257,7 @@ angular.module("lightTabs", [])
 					$scope.selectedPaneIndex = index;
 					$timeout(function () {
 						calcSharedValues();
+						setLeftPosition(calculateBestPosition(0));
 					});
 				};
 
