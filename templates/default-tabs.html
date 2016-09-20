@@ -1,0 +1,21 @@
+<div class="light-tabs-top-container"> 
+    <ul class="light-tabs animate-left">
+        <li ng-repeat="pane in panes track by $index"
+            ng-click="select($index)"
+            ng-class="{selected:pane.selected}" class="noSelect">
+            <div class="fakeRadio">
+                <div class="fakeRadioInner">
+
+                </div>
+            </div>
+            <div class="light-tabs-title" ng-bind="pane.title"></div>
+        </li>
+    </ul>
+</div> 
+<div class="light-tabs-pane">
+    <a ng-show="showLeftArrow" class="arrowLeft light-tabs-arrows" ng-click="scroll(-1)"></a>
+    <a ng-show="showRightArrow" class="arrowRight light-tabs-arrows" ng-click="scroll(1)"></a>
+    <div ng-transclude>
+
+    </div>
+</div>
