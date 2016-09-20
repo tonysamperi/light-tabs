@@ -175,7 +175,7 @@ angular.module("lightTabs", [])
 
 				var updateCurrentLeftPosition = function () {
 					currentLeftPosition = carousel.position().left;
-					currentLeftPosition = Math.floor(currentLeftPosition / itemWidth) * itemWidth;
+					currentLeftPosition = Math.round(currentLeftPosition / itemWidth) * itemWidth;
 				};
 
 				var handleArrows = function (leftPosition) {
