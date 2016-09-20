@@ -146,12 +146,12 @@ angular.module("lightTabs", [])
 					return currentLeftPosition >= maxRange && currentLeftPosition <= minRange;
 				};
 
-				var setLeftPosition = function (position, steps) {
+				var setLeftPosition = function (position, index, force) {
 					carousel.css("left", position);
 					handleArrows(position);
 					$timeout(function () {
-						if (steps !== undefined && !isTabVisible($scope.selectedPaneIndex)) {
-							$scope.select($scope.selectedPaneIndex + steps);
+						if (index !== undefined && (force || !isTabVisible($scope.selectedPaneIndex))) {
+							$scope.select(index);
 						}
 						canNavigate = true;
 					}, 200);
@@ -219,8 +219,7 @@ angular.module("lightTabs", [])
 					if (canNavigate === true) {
 						canNavigate = false;
 						var finalPosition = calcFinalPosition(index);
-						setLeftPosition(finalPosition);
-						$scope.select(index);
+						setLeftPosition(finalPosition, index, true);
 					}
 				};
 
@@ -243,7 +242,8 @@ angular.module("lightTabs", [])
 						if (steps > 0 && currentLeftPosition <= maxScroll)
 							return canNavigate = true;
 						var destination = calculateBestPosition(steps);
-						setLeftPosition(destination, steps);
+						var destinationIndex = $scope.selectedPaneIndex + steps;
+						setLeftPosition(destination, destinationIndex);
 					}
 				};
 
