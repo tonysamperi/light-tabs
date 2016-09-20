@@ -1,1 +1,1 @@
-var app = angular.module("myApp", ["ngTabs"]);
+var app = angular.module("myApp", ["lightTabs"]);
