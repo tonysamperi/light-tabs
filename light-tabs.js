@@ -163,8 +163,11 @@ angular.module("lightTabs", [])
 					itemWidth = Math.ceil(outerWidth / visibleItems);
 					childSet.outerWidth(itemWidth);
 					var childSetWidth = childSet.outerWidth();
-					maxScroll = (childSet.length * childSetWidth) - (visibleItems * childSetWidth);
-					maxScroll *= -1;
+					maxScroll = 0;
+					if(visibleItems < totalItems){
+						maxScroll = (childSet.length * childSetWidth) - (visibleItems * childSetWidth);
+						maxScroll *= -1;
+					}
 					console.debug("maxScroll = ", maxScroll);
 					console.debug("itemWidth = ", itemWidth);
 					updateCurrentLeftPosition();
