@@ -99,6 +99,9 @@ light-tabs ul.light-tabs > li {
     position: relative;
     margin: 0;
 }
+light-tabs ul.light-tabs > li.disabled{
+    cursor: default;
+}
 light-tabs ul.light-tabs > li.selected{
     margin-top: -5px;
 }
@@ -113,8 +116,13 @@ light-tabs ul.light-tabs > li > div.light-tabs-title{
     padding: 20px 0px;
     position: relative;
 }
+light-tabs ul.light-tabs > li.disabled > div.light-tabs-title,
+light-tabs ul.light-tabs > li:hover.disabled > div.light-tabs-title{
+    background-color: #BBB;
+    cursor: default;
+}
 light-tabs ul.light-tabs > li:hover > div.light-tabs-title{
-    background: #990030;
+    background-color: #990030;
 }
 light-tabs ul.light-tabs > li.selected:hover > div.light-tabs-title:before{
     border-top: 10px solid #990030;
@@ -131,6 +139,11 @@ light-tabs ul.light-tabs > li.selected > div.light-tabs-title:before{
     left: 20px;
     bottom: -10px;
 }
+
+light-tabs ul.light-tabs > li.selected.disabled > div.light-tabs-title:before{
+    border-top: 10px solid #BBB;
+}
+
 light-tabs ul.light-tabs > li.last:after{
     clear: both;
     content: " ";

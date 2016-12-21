@@ -1,7 +1,7 @@
 angular.module("lightTabs", [])
     .run(function ($templateCache) {
-		
-		//M0,45 Q162,0 324,45
+
+        //M0,45 Q162,0 324,45
         $templateCache.put("lightTabsOddDecorator.html", '<svg class="lightTabsDecorator lightTabsDecoratorOdd" ng-attr-width="{{pathWidth*2}}">\
                 <path ng-attr-d="M0,{{pathHeight}} Q{{pathWidth/2}},0 {{pathWidth}},{{pathHeight}}"\
                     stroke-dasharray="5"\
@@ -51,7 +51,6 @@ angular.module("lightTabs", [])
     .directive("lightTabs", ["$templateCache", "$compile", "$timeout", function ($templateCache, $compile, $timeout) {
         //CREATES LOCAL REFERENCE TO JQUERY
         var $ = jQuery;
-        var visibleItemsSettings;
         var ltWindow = $(window);
         var shared = {
             breakpoints: {
@@ -66,55 +65,6 @@ angular.module("lightTabs", [])
             }
         };
 
-        var setVisibleItems = function (device, attrs, total, force) {
-            var tmp = attrs["visibleItems" + device];
-            if (typeof tmp !== "undefined") {
-                tmp = parseInt(tmp);
-                if (tmp <= total && !force) {
-                    return tmp;
-                }
-                else {
-                    return shared.defaults[device];
-                }
-            }
-            else {
-                if (total > shared.defaults[device]) {
-                    return shared.defaults[device];
-                }
-            }
-            return total;
-        };
-
-        var getVisibleItemsSettings = function (attrs, total, force) {
-            var result = {};
-            if (!attrs || !total)
-                return shared.defaults;
-
-            for (var device in shared.defaults) {
-                result[device] = setVisibleItems(device, attrs, total, force);
-            }
-
-            return result;
-        };
-
-        var updateVisibleItems = function () {
-            //var deviceWidth = ltWindow.width();
-            var deviceWidth = window.innerWidth;
-            console.info("UPDATE VISIBLE ITEMS: WINDOW WIDTH = " + deviceWidth);
-            var visibleItems;
-            if (deviceWidth < shared.breakpoints.mobile) {
-                visibleItems = visibleItemsSettings.Mobile;
-            }
-            if (deviceWidth > shared.breakpoints.mobile && deviceWidth < shared.breakpoints.tablet) {
-                visibleItems = visibleItemsSettings.Tablet;
-            }
-            if (deviceWidth > shared.breakpoints.tablet) {
-                visibleItems = visibleItemsSettings.Desktop;
-            }
-
-            return visibleItems;
-        };
-
         var lightTabsCtrl = ['$scope', '$element', '$attrs', function ($scope, el, attrs) {
             var uniqueId = attrs.id || ("lightTabs" + new Date().getTime());
             el.addClass("noSelect");
@@ -125,19 +75,85 @@ angular.module("lightTabs", [])
             var topContainer = el.children().first();
             var carousel = topContainer.children("ul.light-tabs");
             var resizeTimeout, totalItems, maxScroll, canNavigate = true, itemWidth, visibleItems, currentLeftPosition;
-            var force = attrs["forceVisible"] === "true";
+            var force = $scope.forceVisible === "true";
+            var responsiveSettings = {
+                visibleItemsDesktop: $scope.visibleItemsDesktop,
+                visibleItemsTablet: $scope.visibleItemsTablet,
+                visibleItemsMobile: $scope.visibleItemsMobile
+            };
+
+            var visibleItemsSettings;
+
+            var setVisibleItems = function (device, responsiveSettings, total, force) {
+                var tmp = responsiveSettings["visibleItems" + device];
+                if (typeof tmp !== "undefined") {
+                    tmp = parseInt(tmp);
+                    if (tmp <= total && !force) {
+                        return tmp;
+                    }
+                    else {
+                        return shared.defaults[device];
+                    }
+                }
+                else {
+                    if (total > shared.defaults[device]) {
+                        return shared.defaults[device];
+                    }
+                }
+                return total;
+            };
+
+            var getVisibleItemsSettings = function (responsiveSettings, total, force) {
+                var result = {};
+                if (!responsiveSettings || !total)
+                    return shared.defaults;
+
+                for (var device in shared.defaults) {
+                    result[device] = setVisibleItems(device, responsiveSettings, total, force);
+                }
+
+                return result;
+            };
+
+            var updateVisibleItems = function () {
+                //var deviceWidth = ltWindow.width();
+                var deviceWidth = window.innerWidth;
+                console.info("UPDATE VISIBLE ITEMS: WINDOW WIDTH = " + deviceWidth);
+                var visibleItems;
+                if (deviceWidth < shared.breakpoints.mobile) {
+                    visibleItems = visibleItemsSettings.Mobile;
+                }
+                if (deviceWidth > shared.breakpoints.mobile && deviceWidth < shared.breakpoints.tablet) {
+                    visibleItems = visibleItemsSettings.Tablet;
+                }
+                if (deviceWidth > shared.breakpoints.tablet) {
+                    visibleItems = visibleItemsSettings.Desktop;
+                }
+
+                return visibleItems;
+            };
+
+            var showIndicators = function () {
+                var indicators = $templateCache.get("lightTabsIndicators.html");
+                indicators = $(indicators).addClass($scope.showIndicators);
+                topContainer.before(indicators);
+                $compile(indicators)($scope);
+            };
 
             var initializeItems = function () {
-                if (!!attrs.skin) {
-                    el.addClass(attrs.skin);
+                if ($scope.showIndicators == true) {
+                    showIndicators();
+                }
+                if (!!$scope.lightTabsSkin) {
+                    el.addClass($scope.lightTabsSkin);
                 }
                 carousel.children("li:last").addClass("last");
                 totalItems = carousel.children().length;
-                visibleItemsSettings = getVisibleItemsSettings(attrs, totalItems, force);
+                visibleItemsSettings = getVisibleItemsSettings(responsiveSettings, totalItems, force);
                 visibleItems = updateVisibleItems();
                 $scope.select(0);
                 handleArrows();
-                if (attrs.showDecorators == "true") {
+                if ($scope.showDecorators == "true") {
                     el.addClass("decorators");
                     addDecorators();
                 }
@@ -158,7 +174,7 @@ angular.module("lightTabs", [])
             };
 
             var isTabVisible = function (index) {
-                currentLeftPosition = carousel.position().left;
+                currentLeftPosition = Math.round(carousel.position().left);
                 var minRange = getMinLeftPositionByIndex(index);
                 var maxRange = getMaxLeftPositionByIndex(index);
                 console.info("TAB " + (index + 1) + " RANGE: " + minRange + " <= offset <= " + maxRange);
@@ -181,7 +197,7 @@ angular.module("lightTabs", [])
                 var outerWidth = topContainer.width();
                 itemWidth = Math.ceil(outerWidth / visibleItems);
                 $scope.pathWidth = (itemWidth - 40);
-				$scope.pathHeight = (topContainer.height() - 40);
+                $scope.pathHeight = (topContainer.height() - 40);
                 childSet.outerWidth(itemWidth);
                 var childSetWidth = childSet.outerWidth();
                 maxScroll = 0;
@@ -267,10 +283,7 @@ angular.module("lightTabs", [])
 
             var calculateBestPosition = function (steps) {
                 updateCurrentLeftPosition();
-                if (visibleItems > 1) {
-                    return currentLeftPosition - (steps * itemWidth);
-                }
-                return 0 - ($scope.selectedPaneIndex + steps) * itemWidth;
+                return currentLeftPosition - (steps * itemWidth);
             };
 
             $scope.scroll = function (steps) {
@@ -336,8 +349,9 @@ angular.module("lightTabs", [])
             ltWindow.off("resize.lightTabs_" + uniqueId).on("resize.lightTabs_" + uniqueId, function () {
                 clearTimeout(resizeTimeout);
                 resizeTimeout = setTimeout(function () {
+                    console.info("RESIZE FOR UNIQUEID:" + uniqueId);
                     if (!visibleItemsSettings) {
-                        visibleItemsSettings = getVisibleItemsSettings(attrs, totalItems, true);
+                        visibleItemsSettings = getVisibleItemsSettings(responsiveSettings, totalItems, true);
                     }
                     visibleItems = updateVisibleItems();
                     calcSharedValues();
@@ -350,7 +364,13 @@ angular.module("lightTabs", [])
         return {
             restrict: 'E',
             scope: {
-                selectedPaneIndex: "=?"
+                selectedPaneIndex: "=?",
+                visibleItemsDesktop: "@?",
+                visibleItemsTablet: "@?",
+                visibleItemsMobile: "@?",
+                lightTabsSkin: "@?",
+                showIndicators: "@?",
+                showDecorators: "@?"
             },
             transclude: true,
             controller: lightTabsCtrl,

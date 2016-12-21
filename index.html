@@ -1,354 +1,393 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tony's Git - light-tabs</title>
-    <meta name="author" content="Tony Samperi">
-    <meta name="description" content="lightTabs: a lightweight responsive tabs widget">
-    <meta name="keywords"
-          content="light-tabs angular angularjs widget responsive tabs with carousel module modulo javascript tab bootstrap forecast temperature tony samperi github">
-    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="css/freelancer.css" rel="stylesheet">
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-          type="text/css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="js/jquery.js"></script>
-    <script src="js/angular.js"></script>
-    <script src="js/app.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tony's Git - light-tabs</title>
+        <meta name="author" content="Tony Samperi">
+        <meta name="description" content="lightTabs: a lightweight responsive tabs widget">
+        <meta name="keywords"
+              content="light-tabs angular angularjs widget responsive tabs with carousel module modulo javascript tab bootstrap forecast temperature tony samperi github">
+        <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/freelancer.css" rel="stylesheet">
+        <!-- Custom Fonts -->
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+              type="text/css">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <script src="js/jquery.js"></script>
+        <script src="js/angular.js"></script>
+        <script src="js/app.js"></script>
 
-    <!-- light-tabs INCLUSIONS -->
-    <link href="light-tabs/css/light-tabs.css" rel="stylesheet"/>
-    <link href="light-tabs/css/light-tabs-decorators.css" rel="stylesheet"/>
-    <script src="light-tabs/light-tabs.js"></script>
-</head>
-<body id="page-top" class="index">
-<!-- Navigation -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="http://tonysamperi.github.io">Tony's Git</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#usage">Usage</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#options">Options</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#demo">Demo</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#about">About</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
-</nav>
-<!-- Header -->
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-text">
-                    <span class="name">lightTabs</span>
-                    <hr class="star-light">
-                    <span class="skills">A powerful responsive tabs widget</span>
+        <!-- light-tabs INCLUSIONS -->
+        <link href="light-tabs/css/light-tabs.css" rel="stylesheet" />
+        <link href="light-tabs/css/light-tabs-decorators.css" rel="stylesheet" />
+        <script src="light-tabs/light-tabs.js"></script>
+    </head>
+    <body id="page-top" class="index">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://tonysamperi.github.io">Tony's Git</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#usage">Usage</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#options">Options</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#demo">Demo</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="intro-text">
+                            <span class="name">lightTabs</span>
+                            <hr class="star-light">
+                            <span class="skills">A powerful responsive tabs widget</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</header>
-<section id="usage">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Usage</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-offset-2 col-xs-8 text-center">
-                lightTabs is the easiest way to put a simple and responsive <em>tabs widget</em> in your website.
-                <br/>
-                When there are more items then visible, arrows will be shown and let you navigate!
-                <ol style="text-align: left">
-                    <li>Import JS and CSS in your page</li>
-                    <li>Inject lightTabs in your app:
-                        <pre><code>var app = angular.module("myApp", ["lightTabs"]);</code></pre>
-                    </li>
-                    <li>Put this simple snippet where you want the widget to appear:
+        </header>
+        <section id="usage">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Usage</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-8 text-center">
+                        lightTabs is the easiest way to put a simple and responsive <em>tabs widget</em> in your
+                        website.
+                        <br />
+                        When there are more items then visible, arrows will be shown and let you navigate!
+                        <ol style="text-align: left">
+                            <li>Import JS and CSS in your page</li>
+                            <li>Inject lightTabs in your app:
+                                <pre><code>var app = angular.module("myApp", ["lightTabs"]);</code></pre>
+                            </li>
+                            <li>Put this simple snippet where you want the widget to appear:
                         <pre><code>
                             &lt;light-tabs&gt;
                             &lt;light-tabs-pane light-tabs-title="TAB 1 TITLE"&gt;
                             &lt;/light-tabs-pane&gt;
                             &lt;/light-tabs&gt;
                         </code></pre>
-                    </li>
-                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-<section id="options">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Options</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
+        </section>
+        <section id="options">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Options</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
 
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <hr/>
-                <table class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Option</th>
-                        <th>Description</th>
-                        <th>Type</th>
-                        <th>Default value</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td><strong>visible-items-desktop</strong></td>
-                        <td>Number of elements to display on desktop (width > 992px)
-                        </td>
-                        <td>Number</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td><strong>visible-items-tablet</strong></td>
-                        <td>Number of elements to display on tablet (768px <= width >= 992px)</td>
-                        <td>Number</td>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <td><strong>visible-items-tablet</strong></td>
-                        <td>Number of elements to display on mobile (width < 768px)</td>
-                        <td>Number</td>
-                        <td>1</td>
-                    </tr>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <hr />
+                        <h3>Options for &lt;light-tabs&gt;</h3>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Default value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>selected-pane-index</strong></td>
+                                    <td>Scope-binded value: this will contain the current tab index: if you change this
+                                        value from your controller, the directive will select the new tab if not
+                                        disabled.
+                                    </td>
+                                    <td>Number</td>
+                                    <td>null</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>visible-items-desktop</strong></td>
+                                    <td>Number of elements to display on desktop (width > 992px)</td>
+                                    <td>Number</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>visible-items-tablet</strong></td>
+                                    <td>Number of elements to display on tablet (768px <= width >= 992px)</td>
+                                    <td>Number</td>
+                                    <td>3</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>visible-items-mobile</strong></td>
+                                    <td>Number of elements to display on mobile (width < 768px)</td>
+                                    <td>Number</td>
+                                    <td>1</td>
+                                </tr>
 
-                    <tr>
-                        <td><strong>show-indicators</strong></td>
-                        <td>If "true" one dot per tab will be showed over the tabs.</td>
-                        <td>String</td>
-                        <td>false</td>
-                    </tr>
-                    <tr>
-                        <td><strong>force-visible</strong></td>
-                        <td>By default, light-tabs will control if visible items is higher than the number of tabs.
-                            if force-visible is "true", the control will be skipped and you could achieve to display
-                            tabs as they are in the second demo below.
-                        </td>
-                        <td>Boolean</td>
-                        <td>true</td>
-                    </tr>
-                    <tr>
-                        <td><strong>light-tabs-title</strong></td>
-                        <td>This param is to put on the &lt;light-tabs-pane&gt; element. The title will be put in the tab
-                            toggle
-                        </td>
-                        <td>string</td>
-                        <td>en</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="demo" style="padding-top: 50px;">
-    <div class="container" ng-app="myApp">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>Demo</h2>
-                <hr class="star-primary">
-            </div>
-        </div>
-        <div class="row ubi-margin-bottom-20">
-            <div class="col-xs-12">
-                <div class="col-xs-12">
-                    <h3>DEFAULT</h3>
-                </div>
-                <light-tabs
-                        visible-items-desktop="3"
-                        visible-items-tablet="3"
-                        show-indicators="true">
-                    <light-tabs-pane light-tabs-title="TAB 1 TITLE">
-                        <p>TAB 1 CONTENT</p>
-                    </light-tabs-pane>
-                    <light-tabs-pane light-tabs-title="TAB 2 TITLE">
-                        <p>TAB 2 CONTENT</p>
-                    </light-tabs-pane>
-                    <light-tabs-pane light-tabs-title="TAB 3 TITLE">
-                        <p>TAB 3 CONTENT</p>
-                    </light-tabs-pane>
-                    <light-tabs-pane light-tabs-title="TAB 4 TITLE">
-                        <p>TAB 4 CONTENT</p>
-                    </light-tabs-pane>
-                    <light-tabs-pane light-tabs-title="TAB 5 TITLE">
-                        <p>TAB 5 CONTENT</p>
-                    </light-tabs-pane>
-                </light-tabs>
-            </div>
-        </div>
-        <div class="row ubi-margin-bottom-20">
-            <div class="col-xs-12">
-                <h3>FORCED</h3>
-            </div>
-            <div class="col-xs-12">
-                <light-tabs
-                        visible-items-desktop="3"
-                        visible-items-tablet="2"
-                        force-visible="true"
-                        show-indicators="true">
-                    <light-tabs-pane light-tabs-title="TAB 1 TITLE">
-                        <p>TAB 1 CONTENT</p>
-                    </light-tabs-pane>
-                    <light-tabs-pane light-tabs-title="TAB 2 TITLE">
-                        <p>TAB 2 CONTENT</p>
-                    </light-tabs-pane>
-                </light-tabs>
-            </div>
-        </div>
-		<div class="row ubi-margin-bottom-20">
-            <div class="col-xs-12">
-                <h3>DECORATORS</h3>
-            </div>
-            <div class="col-xs-12">
-                <light-tabs
-						show-decorators="true"
-                        visible-items-desktop="4"
-                        visible-items-tablet="3"
-                        show-indicators="true">
-                    <light-tabs-pane light-tabs-title="1">
-                        <p>TAB 1 CONTENT</p>
-                    </light-tabs-pane>
-                    <light-tabs-pane light-tabs-title="2">
-                        <p>TAB 2 CONTENT</p>
-                    </light-tabs-pane>
-					<light-tabs-pane light-tabs-title="3">
-                        <p>TAB 3 CONTENT</p>
-                    </light-tabs-pane>
-					<light-tabs-pane light-tabs-title="4">
-                        <p>TAB 4 CONTENT</p>
-                    </light-tabs-pane>
-                </light-tabs>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- About Section -->
-<section class="success" id="about">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>About</h2>
-                <hr class="star-light">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p>lightTabs is a widget to easily add a Tabs Widget in your website!</p>
-            </div>
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a href="https://github.com/tonysamperi/light-tabs" class="btn btn-lg btn-outline">
-                    <i class="fa fa-download"></i> Download lightTabs
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Footer -->
-<footer class="text-center">
-    <div class="footer-above">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col col-md-6">
-                    <h3>Around the Web</h3>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="http://flytheweb.it" class="btn-social btn-outline"><i
-                                    class="fa fa-fw fa-globe"></i></a>
-                        </li>
-                        <li>
-                            <a href="http://facebook.com/flytheweb" class="btn-social btn-outline"><i
-                                    class="fa fa-fw fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://it.linkedin.com/in/tonysamperi" class="btn-social btn-outline"><i
-                                    class="fa fa-fw fa-linkedin"></i></a>
-                        </li>
-                        <li>
-                            <a href="mailto:&#116;&#111;&#110;&#121;&#064;&#102;&#108;&#121;&#116;&#104;&#101;&#119;&#101;&#098;&#046;&#105;&#116;"
-                               class="btn-social btn-outline"><i class="fa fa-fw fa-paper-plane-o"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-col col-md-6">
-                    <h3>About Tony Samperi</h3>
-                    <p>I'm a <span id="age"></span> year old frontend developer in Bergamo, Italy.</p>
+                                <tr>
+                                    <td><strong>show-indicators</strong></td>
+                                    <td>If "true" one dot per tab will be showed over the tabs.</td>
+                                    <td>String</td>
+                                    <td>false</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>force-visible</strong></td>
+                                    <td>By default, light-tabs will control if visible items is higher than the number
+                                        of tabs.
+                                        if force-visible is "true", the control will be skipped and you could achieve to
+                                        display
+                                        tabs as they are in the second demo below.
+                                    </td>
+                                    <td>Boolean</td>
+                                    <td>true</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3>Options for &lt;light-tabs-pane&gt;</h3>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Option</th>
+                                    <th>Description</th>
+                                    <th>Type</th>
+                                    <th>Default value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>light-tabs-title</strong></td>
+                                    <td>Optional title: this will be put in the tab toggle</td>
+                                    <td>string</td>
+                                    <td>empty</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>pane-disabled</strong></td>
+                                    <td>Optional scope-binded value: this will set the tab active or disabled</td>
+                                    <td>boleean</td>
+                                    <td>false</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="footer-below">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    lightTabs created by Tony Samperi (2016)
+        </section>
+        <section id="demo" style="padding-top: 50px;">
+            <div class="container" ng-app="myApp">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Demo</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                <div class="row ubi-margin-bottom-20">
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            <h3>DEFAULT WITH INDICATORS</h3>
+                        </div>
+                        <label>Tab 3 disabled
+                            <input type="checkbox" ng-model="tabDisabled" ng-init="tabDisabled = true" />
+                        </label>
+                        <light-tabs
+                                visible-items-desktop="3"
+                                visible-items-tablet="3"
+                                show-indicators="true">
+                            <light-tabs-pane light-tabs-title="TAB 1 TITLE">
+                                <p>TAB 1 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="TAB 2 TITLE">
+                                <p>TAB 2 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane pane-disabled="tabDisabled" light-tabs-title="TAB 3 TITLE">
+                                <p>TAB 3 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="TAB 4 TITLE">
+                                <p>TAB 4 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="TAB 5 TITLE">
+                                <p>TAB 5 CONTENT</p>
+                            </light-tabs-pane>
+                        </light-tabs>
+                    </div>
+                </div>
+                <div class="row ubi-margin-bottom-20">
+                    <div class="col-xs-12">
+                        <h3>FORCED</h3>
+                    </div>
+                    <div class="col-xs-12">
+                        <light-tabs
+                                visible-items-desktop="3"
+                                visible-items-tablet="2"
+                                force-visible="true"
+                                show-indicators="true">
+                            <light-tabs-pane light-tabs-title="TAB 1 TITLE">
+                                <p>TAB 1 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="TAB 2 TITLE">
+                                <p>TAB 2 CONTENT</p>
+                            </light-tabs-pane>
+                        </light-tabs>
+                    </div>
+                </div>
+                <div class="row ubi-margin-bottom-20">
+                    <div class="col-xs-12">
+                        <h3>DECORATORS</h3>
+                    </div>
+                    <div class="col-xs-12">
+                        <light-tabs
+                                show-decorators="true"
+                                visible-items-desktop="6"
+                                visible-items-tablet="3">
+                            <light-tabs-pane light-tabs-title="1">
+                                <p>TAB 1 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="2">
+                                <p>TAB 2 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane pane-disabled="true"
+                                             light-tabs-title="3">
+                                <p>TAB 3 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="4">
+                                <p>TAB 4 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="5">
+                                <p>TAB 5 CONTENT</p>
+                            </light-tabs-pane>
+                            <light-tabs-pane light-tabs-title="6">
+                                <p>TAB 6 CONTENT</p>
+                            </light-tabs-pane>
+
+                        </light-tabs>
+                    </div>
                 </div>
             </div>
+        </section>
+        <!-- About Section -->
+        <section class="success" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>About</h2>
+                        <hr class="star-light">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <p>lightTabs is a widget to easily add a Tabs Widget in your website!</p>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <a href="https://github.com/tonysamperi/light-tabs" class="btn btn-lg btn-outline">
+                            <i class="fa fa-download"></i> Download lightTabs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="text-center">
+            <div class="footer-above">
+                <div class="container">
+                    <div class="row">
+                        <div class="footer-col col-md-6">
+                            <h3>Around the Web</h3>
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="http://flytheweb.it" class="btn-social btn-outline"><i
+                                            class="fa fa-fw fa-globe"></i></a>
+                                </li>
+                                <li>
+                                    <a href="http://facebook.com/flytheweb" class="btn-social btn-outline"><i
+                                            class="fa fa-fw fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://it.linkedin.com/in/tonysamperi" class="btn-social btn-outline"><i
+                                            class="fa fa-fw fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a href="mailto:&#116;&#111;&#110;&#121;&#064;&#102;&#108;&#121;&#116;&#104;&#101;&#119;&#101;&#098;&#046;&#105;&#116;"
+                                       class="btn-social btn-outline"><i class="fa fa-fw fa-paper-plane-o"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-col col-md-6">
+                            <h3>About Tony Samperi</h3>
+                            <p>I'm a <span id="age"></span> year old frontend developer in Bergamo, Italy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            lightTabs created by Tony Samperi (2016)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+        <div class="scroll-top page-scroll visible-xs visible-sm">
+            <a class="btn btn-primary" href="#page-top">
+                <i class="fa fa-chevron-up"></i>
+            </a>
         </div>
-    </div>
-</footer>
-<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-<div class="scroll-top page-scroll visible-xs visible-sm">
-    <a class="btn btn-primary" href="#page-top">
-        <i class="fa fa-chevron-up"></i>
-    </a>
-</div>
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<!-- Plugin JavaScript -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/cbpAnimatedHeader.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="js/freelancer.js"></script>
-<script type="text/javascript">
-    $("#age").html(new Date().getFullYear() - 1989);
-</script>
-</body>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="js/classie.js"></script>
+        <script src="js/cbpAnimatedHeader.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="js/freelancer.js"></script>
+        <script type="text/javascript">
+            $("#age").html(new Date().getFullYear() - 1989);
+        </script>
+    </body>
 </html>
