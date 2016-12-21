@@ -62,8 +62,7 @@ Put this simple snippet where you want the widget to appear
 | Option | Description | Type | Default value |
 | --- | --- | --- | --- |
 | **paneDisabled** | Optional scope-binded value which will determine if the pane is disabled | boolean | false |
-| **light-tabs-title** | This param is to put on the <light-tabs-pane> element. The title will be put in the tab toggle | String | empty
-|
+| **light-tabs-title** | This param is to put on the <light-tabs-pane> element. The title will be put in the tab toggle | String | empty |
 
 # License
 
