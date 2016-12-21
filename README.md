@@ -45,18 +45,25 @@ Put this simple snippet where you want the widget to appear
 	</light-tabs-pane>
 </light-tabs>
 ```
-**Params**
+**Params for light-tabs element**
 
 | Option | Description | Type | Default value |
 | --- | --- | --- | --- |
+| **selectedTabIndex** | Optional scope-binded value which contains the selected tab. If changing this value from your crontroller, light-tabs directive will navigate to new index, if not disabled | Number | null |
 | **skin** | An optional class which will be added to light-tabs | String | null |
 | **show-decorators** | This activates a special skin with decorators when its value is "true" | String | null |
 | **visible-items-desktop** | Number of elements to display on desktop (width > 992px) | String | 3 |
 | **visible-items-tablet** | Number of elements to display on tablet (768px <= width >= 992px) | String | 3 |
 | **visible-items-mobile** | Number of elements to display on mobile (width < 768px) | String | 1 |
-| **force-visible** | 	By default, ng-tabs will control if visible items is higher than the number of tabs. if force-visible is "true", the control will be skipped. | String | false |
-| **light-tabs-title** | This param is to put on the <ng-tabs-pane> element. The title will be put in the tab toggle | String | null |
+| **force-visible** | 	By default, light-tabs will control if visible items is higher than the number of tabs. if force-visible is "true", the control will be skipped. | String | false |
 
+**Params for light-tabs-pane element**
+
+| Option | Description | Type | Default value |
+| --- | --- | --- | --- |
+| ** paneDisabled ** | Optional scope-binded value which will determine if the pane is disabled | boolean | false |
+| **light-tabs-title** | This param is to put on the <light-tabs-pane> element. The title will be put in the tab toggle | String | empty
+|
 # License
 
 Check out LICENSE file (MIT)
