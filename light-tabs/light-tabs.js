@@ -31,7 +31,7 @@ angular.module("lightTabs", [])
 			<ul class="light-tabs animate-left">\
 				<li ng-repeat="pane in panes track by $index"\
 					ng-click="select($index)"\
-					ng-class="{selected:pane.selected, disabled:pane.paneDisabled}" class="noSelect {{paneClass}}">\
+					ng-class="{selected:pane.selected, disabled:pane.paneDisabled}" class="noSelect {{pane.paneClass}}">\
 					<div class="fakeRadio">\
 						<div class="fakeRadioInner">\
 						</div>\
