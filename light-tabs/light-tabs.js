@@ -88,7 +88,7 @@ angular.module("lightTabs", [])
                 var tmp = responsiveSettings["visibleItems" + device];
                 if (typeof tmp !== "undefined") {
                     tmp = parseInt(tmp);
-                    if (tmp <= total && !force) {
+                    if (tmp <= total || force) {
                         return tmp;
                     }
                     else {
@@ -370,7 +370,8 @@ angular.module("lightTabs", [])
                 visibleItemsMobile: "@?",
                 lightTabsSkin: "@?",
                 showIndicators: "@?",
-                showDecorators: "@?"
+                showDecorators: "@?",
+                forceVisible: "@?"
             },
             transclude: true,
             controller: lightTabsCtrl,
